@@ -19,7 +19,10 @@ module Devise
         private
 
         def mailer_class(resource = nil)
-          @mailer_class ||= resource.try(:devise_mailer) || Devise.mailer
+          #@mailer_class ||= resource.try(:devise_mailer) || Devise.mailer
+          #
+          # resource.try was returning protected method devise_mailer error
+          @mailer_class ||= Devise.mailer
         end
       end
     end
